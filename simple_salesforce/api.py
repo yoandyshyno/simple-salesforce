@@ -768,7 +768,7 @@ class Salesforce:
         if self._salesforce_login_partial is not None \
                 and result.status_code == 401:
             error_details = result.json()[0]
-            if error_details['errorCode'] == 'INVALID_SESSION_ID':
+            if error_details['errorCode'] in {'INVALID_SESSION_ID', 'INVALID_AUTH_HEADER'}:
                 self._refresh_session()
                 retries += 1
                 if retries > max_retries:
