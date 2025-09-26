@@ -194,7 +194,7 @@ def SalesforceLogin(
             consumer_key is not None and \
             (privatekey_file is not None or privatekey is not None):
         token_domain = instance_url if instance_url is not None else domain
-        expiration = datetime.now(timezone.utc) + timedelta(minutes=3)
+        expiration = datetime.now(timezone.utc) + timedelta(minutes=15)
         payload = {
             'iss': consumer_key,
             'sub': unescape(username),
